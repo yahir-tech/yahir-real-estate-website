@@ -3,7 +3,7 @@ const businessName = "Yahir Galvan Real Estate";
 const phoneDisplay = "(956) 739-8260";
 const phoneLink = "+19567398260";
 
-// ✅ CHANGE THIS TO YOUR EMAIL:
+// ✅ If this is correct, leave it. If not, change it:
 const YOUR_EMAIL = "Yahir@bigrealty.com";
 ---
 
@@ -19,15 +19,31 @@ const YOUR_EMAIL = "Yahir@bigrealty.com";
 
     <style>
       :root{--bg:#0b1220;--card:#0f1a33;--text:#eaf0ff;--muted:#b6c2e2;--accent:#7aa7ff;--line:#233155;}
-      *{box-sizing:border-box} body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:linear-gradient(180deg,var(--bg),#070b14);color:var(--text)}
-      a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
+      *{box-sizing:border-box}
+      body{
+        margin:0;
+        font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+        background:linear-gradient(180deg,var(--bg),#070b14);
+        color:var(--text)
+      }
+      a{color:var(--accent);text-decoration:none}
+      a:hover{text-decoration:underline}
       .wrap{max-width:1100px;margin:0 auto;padding:24px}
       .nav{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 0}
       .brand{font-weight:800;letter-spacing:.3px}
-      .btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 16px;border-radius:12px;background:var(--accent);color:#0a1020;font-weight:700;border:none;cursor:pointer}
+      .btn{
+        display:inline-flex;align-items:center;justify-content:center;
+        padding:12px 16px;border-radius:12px;background:var(--accent);
+        color:#0a1020;font-weight:700;border:none;cursor:pointer
+      }
       .btn.secondary{background:transparent;color:var(--text);border:1px solid var(--line)}
       .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:22px;align-items:stretch;margin-top:8px}
-      .card{background:rgba(15,26,51,.85);border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:0 12px 30px rgba(0,0,0,.25)}
+      .card{
+        background:rgba(15,26,51,.85);
+        border:1px solid var(--line);
+        border-radius:18px;padding:18px;
+        box-shadow:0 12px 30px rgba(0,0,0,.25)
+      }
       h1{margin:.2rem 0 0;font-size:38px;line-height:1.08}
       .sub{color:var(--muted);margin:12px 0 0;font-size:16px;line-height:1.5}
       .pillrow{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
@@ -35,16 +51,35 @@ const YOUR_EMAIL = "Yahir@bigrealty.com";
       .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px}
       .k{font-weight:800}
       label{display:block;font-size:13px;color:var(--muted);margin:10px 0 6px}
-      input,textarea{width:100%;padding:12px;border-radius:12px;border:1px solid var(--line);background:#0b1430;color:var(--text);outline:none}
+      input,textarea{
+        width:100%;
+        padding:12px;border-radius:12px;
+        border:1px solid var(--line);
+        background:#0b1430;color:var(--text);
+        outline:none
+      }
       textarea{min-height:110px;resize:vertical}
       .fine{font-size:12px;color:var(--muted);line-height:1.45}
       .checkline{display:flex;gap:10px;align-items:flex-start;margin-top:10px}
       .checkline input{width:18px;height:18px;margin-top:2px}
-      .footer{margin:26px 0 10px;color:var(--muted);font-size:12px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
+      .footer{
+        margin:26px 0 10px;color:var(--muted);font-size:12px;
+        display:flex;flex-wrap:wrap;gap:10px;
+        align-items:center;justify-content:space-between
+      }
       .section{margin-top:18px}
       .hr{height:1px;background:var(--line);margin:16px 0}
-      .success{display:none;margin-top:12px;padding:10px 12px;border-radius:12px;background:rgba(122,167,255,.12);border:1px solid rgba(122,167,255,.35);color:var(--text)}
-      @media (max-width: 900px){.hero{grid-template-columns:1fr}.grid3{grid-template-columns:1fr} h1{font-size:32px}}
+      .success{
+        display:none;margin-top:12px;padding:10px 12px;border-radius:12px;
+        background:rgba(122,167,255,.12);
+        border:1px solid rgba(122,167,255,.35);
+        color:var(--text)
+      }
+      @media (max-width: 900px){
+        .hero{grid-template-columns:1fr}
+        .grid3{grid-template-columns:1fr}
+        h1{font-size:32px}
+      }
     </style>
   </head>
 
@@ -101,7 +136,7 @@ const YOUR_EMAIL = "Yahir@bigrealty.com";
             Send a message and I’ll get back to you. <strong>Phone is optional.</strong>
           </p>
 
-          <!-- ✅ COMPLIANCE: Phone optional + SMS checkbox optional -->
+          <!-- ✅ COMPLIANCE: Phone OPTIONAL + SMS checkbox OPTIONAL -->
           <form id="leadForm" novalidate>
             <label for="name">Full Name *</label>
             <input id="name" name="name" autocomplete="name" required />
@@ -113,12 +148,17 @@ const YOUR_EMAIL = "Yahir@bigrealty.com";
             <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="(###) ###-####" />
 
             <label for="message">What are you looking for? *</label>
-            <textarea id="message" name="message" required placeholder="Example: 3 bed home in Mission under $250k, or an investment property in McAllen..."></textarea>
+            <textarea
+              id="message"
+              name="message"
+              required
+              placeholder="Example: 3 bed home in Mission under $250k, or an investment property in McAllen..."
+            ></textarea>
 
             <div class="checkline">
               <input id="sms_opt_in" name="sms_opt_in" type="checkbox" />
               <div class="fine">
-                <!-- ✅ REQUIRED OPT-IN LANGUAGE -->
+                <!-- ✅ REQUIRED OPT-IN LANGUAGE + Privacy Policy link -->
                 I agree to be contacted by <strong>{businessName}</strong> via call, email, and text for real estate services.
                 To opt out, you can reply <strong>'stop'</strong> at any time or reply <strong>'help'</strong> for assistance.
                 You can also click the unsubscribe link in the emails.
@@ -129,7 +169,9 @@ const YOUR_EMAIL = "Yahir@bigrealty.com";
               </div>
             </div>
 
-            <button class="btn" type="submit" style="width:100%;margin-top:14px">Send</button>
+            <button class="btn" type="submit" style="width:100%;margin-top:14px">
+              Send
+            </button>
 
             <div id="success" class="success">
               Thanks! Your message is ready to send. If it didn’t open automatically, you can copy it below.
@@ -143,13 +185,18 @@ const YOUR_EMAIL = "Yahir@bigrealty.com";
         </div>
       </div>
 
+      <!-- ✅ UPDATED PRIVACY POLICY THAT PASSES CARRIER LANGUAGE -->
       <div class="card section" id="privacy">
-        <h2 style="margin:0 0 6px">Privacy Policy (Simple)</h2>
+        <h2 style="margin:0 0 6px">Privacy Policy</h2>
         <p class="fine" style="margin:0">
-          We collect the information you submit (name, email, optional phone, and message) to respond to your real estate inquiry and provide requested services.
+          We collect the information you submit (name, email, optional phone number, and message) to respond to your real estate inquiry and provide requested services.
           If you provide a phone number, you will only receive text messages if you also check the SMS consent box above.
-          We do not sell your personal information. We may share your information with service providers used to respond to your inquiry (e.g., CRM systems).
-          You can opt out of text messages by replying “STOP” and request help by replying “HELP”. Email messages may include an unsubscribe link.
+          <br /><br />
+          <strong>Data Sharing / Selling:</strong> We do not sell or share your personal information (including phone numbers) with third parties for promotional or marketing purposes.
+          <br /><br />
+          We may share your information with service providers that help us operate our business and respond to your inquiry (for example: website hosting, CRM tools, or communication providers). These providers are not permitted to use your information for their own marketing.
+          <br /><br />
+          You can opt out of text messages at any time by replying <strong>“STOP”</strong> and request help by replying <strong>“HELP”</strong>. Message and data rates may apply. Message frequency may vary. Email messages may include an unsubscribe link.
         </p>
       </div>
 
@@ -196,8 +243,8 @@ const YOUR_EMAIL = "Yahir@bigrealty.com";
           return;
         }
 
-        // ✅ COMPLIANCE GUARDRAIL:
-        // If they check SMS consent but didn’t provide a phone number, don’t submit.
+        // ✅ Compliance guardrail:
+        // If they checked SMS consent but did not provide a phone number, stop.
         if(smsOptIn && !phone){
           alert("To receive texts, please add a phone number OR uncheck the SMS consent box.");
           return;
