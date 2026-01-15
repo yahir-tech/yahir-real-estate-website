@@ -3,8 +3,8 @@ const businessName = "Yahir Galvan Real Estate";
 const phoneDisplay = "(956) 739-8260";
 const phoneLink = "+19567398260";
 
-// ✅ CHANGE THIS:
-const YOUR_EMAIL = "YOUR_EMAIL_HERE@example.com";
+// ✅ CHANGE THIS TO YOUR EMAIL:
+const YOUR_EMAIL = "Yahir@bigrealty.com";
 ---
 
 <html lang="en">
@@ -101,6 +101,7 @@ const YOUR_EMAIL = "YOUR_EMAIL_HERE@example.com";
             Send a message and I’ll get back to you. <strong>Phone is optional.</strong>
           </p>
 
+          <!-- ✅ COMPLIANCE: Phone optional + SMS checkbox optional -->
           <form id="leadForm" novalidate>
             <label for="name">Full Name *</label>
             <input id="name" name="name" autocomplete="name" required />
@@ -112,11 +113,12 @@ const YOUR_EMAIL = "YOUR_EMAIL_HERE@example.com";
             <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="(###) ###-####" />
 
             <label for="message">What are you looking for? *</label>
-            <textarea id="message" name="message" required placeholder="Example: 3 bed home in Mission under $250k, or a rental property in McAllen..."></textarea>
+            <textarea id="message" name="message" required placeholder="Example: 3 bed home in Mission under $250k, or an investment property in McAllen..."></textarea>
 
             <div class="checkline">
               <input id="sms_opt_in" name="sms_opt_in" type="checkbox" />
               <div class="fine">
+                <!-- ✅ REQUIRED OPT-IN LANGUAGE -->
                 I agree to be contacted by <strong>{businessName}</strong> via call, email, and text for real estate services.
                 To opt out, you can reply <strong>'stop'</strong> at any time or reply <strong>'help'</strong> for assistance.
                 You can also click the unsubscribe link in the emails.
@@ -194,10 +196,8 @@ const YOUR_EMAIL = "YOUR_EMAIL_HERE@example.com";
           return;
         }
 
-        // ✅ Compliance logic:
-        // - Phone is optional
-        // - SMS opt-in is optional
-        // - If they check SMS opt-in but provide no phone, warn them
+        // ✅ COMPLIANCE GUARDRAIL:
+        // If they check SMS consent but didn’t provide a phone number, don’t submit.
         if(smsOptIn && !phone){
           alert("To receive texts, please add a phone number OR uncheck the SMS consent box.");
           return;
