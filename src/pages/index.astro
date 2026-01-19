@@ -3,7 +3,6 @@ const businessName = "Yahir Galvan Real Estate";
 const phoneDisplay = "(956) 739-8260";
 const phoneLink = "+19567398260";
 
-// ✅ If this is correct, leave it. If not, change it:
 const YOUR_EMAIL = "Yahir@bigrealty.com";
 ---
 
@@ -75,6 +74,7 @@ const YOUR_EMAIL = "Yahir@bigrealty.com";
         border:1px solid rgba(122,167,255,.35);
         color:var(--text)
       }
+      ul{margin:8px 0 8px 18px}
       @media (max-width: 900px){
         .hero{grid-template-columns:1fr}
         .grid3{grid-template-columns:1fr}
@@ -136,7 +136,6 @@ const YOUR_EMAIL = "Yahir@bigrealty.com";
             Send a message and I’ll get back to you. <strong>Phone is optional.</strong>
           </p>
 
-          <!-- ✅ COMPLIANCE: Phone OPTIONAL + SMS checkbox OPTIONAL -->
           <form id="leadForm" novalidate>
             <label for="name">Full Name *</label>
             <input id="name" name="name" autocomplete="name" required />
@@ -158,7 +157,6 @@ const YOUR_EMAIL = "Yahir@bigrealty.com";
             <div class="checkline">
               <input id="sms_opt_in" name="sms_opt_in" type="checkbox" />
               <div class="fine">
-                <!-- ✅ REQUIRED OPT-IN LANGUAGE + Privacy Policy link -->
                 I agree to be contacted by <strong>{businessName}</strong> via call, email, and text for real estate services.
                 To opt out, you can reply <strong>'stop'</strong> at any time or reply <strong>'help'</strong> for assistance.
                 You can also click the unsubscribe link in the emails.
@@ -185,18 +183,48 @@ const YOUR_EMAIL = "Yahir@bigrealty.com";
         </div>
       </div>
 
-      <!-- ✅ UPDATED PRIVACY POLICY THAT PASSES CARRIER LANGUAGE -->
+      <!-- ✅ FORMAL PRIVACY POLICY (carrier-friendly + business-related) -->
       <div class="card section" id="privacy">
         <h2 style="margin:0 0 6px">Privacy Policy</h2>
         <p class="fine" style="margin:0">
-          We collect the information you submit (name, email, optional phone number, and message) to respond to your real estate inquiry and provide requested services.
-          If you provide a phone number, you will only receive text messages if you also check the SMS consent box above.
+          <strong>Effective Date:</strong> January 2026<br />
+          <strong>Business:</strong> {businessName}<br /><br />
+
+          This Privacy Policy explains how {businessName} (“we,” “us,” or “our”) collects, uses, and protects your information when you visit this website and submit a form requesting real estate services.
           <br /><br />
-          <strong>Data Sharing / Selling:</strong> We do not sell or share your personal information (including phone numbers) with third parties for promotional or marketing purposes.
+
+          <strong>Information We Collect</strong><br />
+          We may collect information you voluntarily provide, including:
+          <ul>
+            <li>Name</li>
+            <li>Email address</li>
+            <li>Phone number (optional)</li>
+            <li>Message/inquiry details related to real estate services</li>
+          </ul>
+
+          <strong>How We Use Information</strong><br />
+          We use the information you provide to:
+          <ul>
+            <li>Respond to your inquiry and provide real estate services</li>
+            <li>Communicate with you by email or phone</li>
+            <li>Send text messages only if you provide a phone number and opt in to SMS/text</li>
+          </ul>
+
+          <strong>Data Sharing / Selling</strong><br />
+          <strong>Data will not be shared with third parties for marketing or promotional purposes.</strong><br />
+          We do not sell your personal information. We do not sell or share your personal information (including phone numbers) with third parties for promotional or marketing purposes.
           <br /><br />
-          We may share your information with service providers that help us operate our business and respond to your inquiry (for example: website hosting, CRM tools, or communication providers). These providers are not permitted to use your information for their own marketing.
+
+          <strong>Service Providers</strong><br />
+          We may share your information with trusted service providers that help us operate our business and respond to your inquiry (for example: website hosting, CRM tools, and communication providers). These providers are not permitted to use your information for their own marketing.
           <br /><br />
-          You can opt out of text messages at any time by replying <strong>“STOP”</strong> and request help by replying <strong>“HELP”</strong>. Message and data rates may apply. Message frequency may vary. Email messages may include an unsubscribe link.
+
+          <strong>SMS/Text Messaging</strong><br />
+          If you opt in to receive text messages, message and data rates may apply. Message frequency may vary. You can opt out at any time by replying <strong>STOP</strong>. For assistance, reply <strong>HELP</strong>.
+          <br /><br />
+
+          <strong>Contact</strong><br />
+          Questions? Email us at <strong>{YOUR_EMAIL}</strong>.
         </p>
       </div>
 
@@ -243,8 +271,6 @@ const YOUR_EMAIL = "Yahir@bigrealty.com";
           return;
         }
 
-        // ✅ Compliance guardrail:
-        // If they checked SMS consent but did not provide a phone number, stop.
         if(smsOptIn && !phone){
           alert("To receive texts, please add a phone number OR uncheck the SMS consent box.");
           return;
