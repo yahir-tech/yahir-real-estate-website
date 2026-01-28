@@ -13,7 +13,7 @@ const YOUR_EMAIL = "Yahir@bigrealty.com";
     <title>{businessName} | RGV</title>
     <meta
       name="description"
-      content="Lead capture website for Yahir Galvan Real Estate — Serving all of the Rio Grande Valley."
+      content="Lead capture website for YGALVAN INVESTMENTS — Serving all of the Rio Grande Valley."
     />
 
     <style>
@@ -59,8 +59,6 @@ const YOUR_EMAIL = "Yahir@bigrealty.com";
       }
       textarea{min-height:110px;resize:vertical}
       .fine{font-size:12px;color:var(--muted);line-height:1.45}
-      .checkline{display:flex;gap:10px;align-items:flex-start;margin-top:10px}
-      .checkline input{width:18px;height:18px;margin-top:2px}
       .footer{
         margin:26px 0 10px;color:var(--muted);font-size:12px;
         display:flex;flex-wrap:wrap;gap:10px;
@@ -146,6 +144,15 @@ const YOUR_EMAIL = "Yahir@bigrealty.com";
             <label for="phone">Phone (optional)</label>
             <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="(###) ###-####" />
 
+            <!-- ✅ REQUIRED OPT-IN LANGUAGE (NO CHECKBOX) -->
+            <div class="fine" style="margin-top:10px">
+              By providing your phone number, you agree to receive calls and text messages from
+              <strong>{businessName}</strong> regarding investment and real estate services.
+              Message and data rates may apply. Message frequency may vary.
+              You can reply <strong>STOP</strong> to opt out or <strong>HELP</strong> for assistance.
+              <a href="#privacy">Privacy Policy</a>.
+            </div>
+
             <label for="message">What are you looking for? *</label>
             <textarea
               id="message"
@@ -153,15 +160,6 @@ const YOUR_EMAIL = "Yahir@bigrealty.com";
               required
               placeholder="Example: 3 bed home in Mission under $250k, or an investment property in McAllen..."
             ></textarea>
-
-            <div class="checkline">
-              <input id="sms_opt_in" name="sms_opt_in" type="checkbox" />
-              <div class="fine">
-               I agree to be contacted by YGALVAN INVESTMENTS via call, email, and text for investment and real estate services. To opt out, you can reply 'stop' at any time or reply 'help' for assistance. You can also click the unsubscribe link in the emails. Message and data rates may apply. Message frequency may vary. Privacy Policy." https://yahir-real-estate-rgv.netlify.app/.
-                <br /><br />
-                <strong>Note:</strong> This checkbox is optional. You can submit this form without agreeing to SMS/text.
-              </div>
-            </div>
 
             <button class="btn" type="submit" style="width:100%;margin-top:14px">
               Send
@@ -179,14 +177,14 @@ const YOUR_EMAIL = "Yahir@bigrealty.com";
         </div>
       </div>
 
-      <!-- ✅ FORMAL PRIVACY POLICY (FUB / carrier friendly) -->
+      <!-- ✅ FORMAL PRIVACY POLICY (NO CHECKBOX / CARRIER FRIENDLY) -->
       <div class="card section" id="privacy">
         <h2 style="margin:0 0 6px">Privacy Policy</h2>
         <p class="fine" style="margin:0">
           <strong>Effective Date:</strong> January 2026<br />
           <strong>Business:</strong> {businessName}<br /><br />
 
-          This Privacy Policy explains how {businessName} (“we,” “us,” or “our”) collects, uses, and protects your information when you visit this website and submit a contact request for real estate services.
+          This Privacy Policy explains how {businessName} (“we,” “us,” or “our”) collects, uses, and protects your information when you visit this website and submit a contact request for investment and real estate services.
           <br /><br />
 
           <strong>Information We Collect</strong><br />
@@ -195,15 +193,15 @@ const YOUR_EMAIL = "Yahir@bigrealty.com";
             <li>Name</li>
             <li>Email address</li>
             <li>Phone number (optional)</li>
-            <li>Message/inquiry details related to real estate services</li>
+            <li>Message/inquiry details related to investment and real estate services</li>
           </ul>
 
           <strong>How We Use Your Information</strong><br />
           We use the information you provide to:
           <ul>
-            <li>Respond to your inquiry and provide real estate services</li>
-            <li>Communicate with you by phone or email</li>
-            <li>Send text messages only if you provide a phone number and opt in to SMS/text messaging</li>
+            <li>Respond to your inquiry and provide requested services</li>
+            <li>Communicate with you by phone, email, and/or text if you voluntarily provide a phone number</li>
+            <li>Provide updates, scheduling, and information related to your inquiry</li>
           </ul>
 
           <strong>Data Sharing / Selling</strong><br />
@@ -212,10 +210,12 @@ const YOUR_EMAIL = "Yahir@bigrealty.com";
           <br /><br />
 
           <strong>Service Providers</strong><br />
-          We do not share your personal information with third parties for marketing or promotional purposes.<br /><br />
+          We may share your information with trusted service providers that help us operate our business and respond to your inquiry (for example: website hosting, CRM tools, and communication providers).
+          These providers are not permitted to use your information for their own marketing.
+          <br /><br />
 
           <strong>SMS/Text Messaging</strong><br />
-          If you opt in to receive text messages, message and data rates may apply. Message frequency may vary.
+          If you provide a phone number, message and data rates may apply. Message frequency may vary.
           You can opt out at any time by replying <strong>STOP</strong>. For assistance, reply <strong>HELP</strong>.
           <br /><br />
 
@@ -260,21 +260,15 @@ const YOUR_EMAIL = "Yahir@bigrealty.com";
         const email = document.getElementById("email").value.trim();
         const phone = document.getElementById("phone").value.trim();
         const message = document.getElementById("message").value.trim();
-        const smsOptIn = document.getElementById("sms_opt_in").checked;
 
         if(!name || !email || !message || !validateEmail(email)){
           alert("Please fill out Name, a valid Email, and your Message.");
           return;
         }
 
-        if(smsOptIn && !phone){
-          alert("To receive texts, please add a phone number OR uncheck the SMS consent box.");
-          return;
-        }
-
-        const consentLine = smsOptIn
-          ? "Consent: YES (Call/Email/Text)"
-          : "Consent: NO (Email ok; no SMS/text consent)";
+        const consentLine = phone
+          ? "Consent: Phone number voluntarily provided (calls/texts allowed)"
+          : "Consent: No phone number provided";
 
         const payload =
 `New website lead:
@@ -292,7 +286,7 @@ Opt-out info: Reply STOP to opt out, HELP for help. Msg/data rates may apply. Ms
         success.style.display = "block";
         copyBox.textContent = payload;
 
-        const subject = encodeURIComponent("New RGV Real Estate Lead");
+        const subject = encodeURIComponent("New RGV Lead");
         const body = encodeURIComponent(payload);
 
         window.location.href = `mailto:${YOUR_EMAIL}?subject=${subject}&body=${body}`;
